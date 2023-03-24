@@ -32,10 +32,23 @@ resources = {
     "coffee": 100,
 }
 
+
 def current_resources(resources):
     str_list = []
     for k,v in resources.items():
         print(f'{k.capitalize()}: {v}')
+
+
+def payment(drink):
+    long_str = f"""
+        Cost =      ${MENU[drink]['cost']}
+        Quarters:      0
+        Dimes:         0
+        Nickels:       0
+        Pennies:       0
+    """
+    return long_str
+
 
 def main():
     avail_water = resources['water']
@@ -53,6 +66,7 @@ def main():
     elif choice.lower() == 'espresso':
         if MENU["espresso"]['ingredients']['water'] <= avail_water and MENU['espresso']['ingredients']['coffee'] <= avail_coffee:
             print(f'You have chosen espresso.  That will be ${MENU["espresso"]["cost"]}')
+            print(payment('espresso'))
         elif MENU["espresso"]['ingredients']['water'] > avail_water and MENU['espresso']['ingredients']['coffee'] <= avail_coffee:
             print("Sorry, we don't have enough water")
         elif MENU["espresso"]['ingredients']['water'] <= avail_water and MENU['espresso']['ingredients']['coffee'] > avail_coffee:
@@ -63,6 +77,7 @@ def main():
     elif choice.lower() == 'latte':
         if MENU['latte']['ingredients']['water'] <= avail_water and MENU['latte']['ingredients']['milk'] <= avail_milk and MENU['latte']['ingredients']['coffee'] <= avail_coffee:
             print(f"You have chosen latte. That will be ${MENU['latte']['cost']}")
+            print(payment('latte'))
         elif MENU['latte']['ingredients']['water'] > avail_water and MENU['latte']['ingredients']['milk'] <= avail_milk and MENU['latte']['ingredients']['coffee'] <= avail_coffee:
             print("Sorry, we don't have enough water")
         elif MENU['latte']['ingredients']['water'] <= avail_water and MENU['latte']['ingredients']['milk'] > avail_milk and MENU['latte']['ingredients']['coffee'] <= avail_coffee:
@@ -81,6 +96,7 @@ def main():
     elif choice.lower() == 'cappuccino':
         if MENU['cappuccino']['ingredients']['water'] <= avail_water and MENU['cappuccino']['ingredients']['milk'] <= avail_milk and MENU['cappuccino']['ingredients']['coffee'] <= avail_coffee:
             print(f"You have chosen cappuccino. That will be ${MENU['cappuccino']['cost']}")
+            print(payment('cappuccino'))
         elif MENU['cappuccino']['ingredients']['water'] > avail_water and MENU['cappuccino']['ingredients']['milk'] <= avail_milk and MENU['cappuccino']['ingredients']['coffee'] <= avail_coffee:
             print("Sorry, we don't have enough water")
         elif MENU['cappuccino']['ingredients']['water'] <= avail_water and MENU['cappuccino']['ingredients']['milk'] > avail_milk and MENU['cappuccino']['ingredients']['coffee'] <= avail_coffee:
