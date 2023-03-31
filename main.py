@@ -32,6 +32,12 @@ resources = {
     "coffee": 100,
 }
 
+coins = {
+    'Quarters': 0,
+    'Dimes': 0,
+    'Nickels': 0,
+    'Pennies': 0,
+}
 
 def current_resources(resources):
     str_list = []
@@ -41,12 +47,12 @@ def current_resources(resources):
 
 def payment(drink):
     long_str = f"""
-        Cost =      ${MENU[drink]['cost']}
-        Quarters:      0
-        Dimes:         0
-        Nickels:       0
-        Pennies:       0
+    Cost =      ${MENU[drink]['cost']}
+    Please insert coins
     """
+
+    quarters = input('')
+
     return long_str
 
 
