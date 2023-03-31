@@ -32,7 +32,7 @@ resources = {
     "coffee": 100,
 }
 
-coins = {
+current_coins = {
     'Quarters': 0,
     'Dimes': 0,
     'Nickels': 0,
@@ -50,10 +50,19 @@ def payment(drink):
     Cost =      ${MENU[drink]['cost']}
     Please insert coins
     """
+    print(long_str)
 
-    quarters = input('')
+    quarters = int(input('How many quarters did you insert?: '))
+    dimes = int(input('How many dimes did you insert?: '))
+    nickels = int(input('How many nickels did you insert?: '))
+    pennies = int(input('How many pennies did you insert?: '))
 
-    return long_str
+    current_coins['Quarters'] += quarters
+    current_coins['Dimes'] += dimes
+    current_coins['Nickels'] += nickels
+    current_coins['Pennies'] += pennies
+
+    return
 
 
 def main():
