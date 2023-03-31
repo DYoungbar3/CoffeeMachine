@@ -62,7 +62,10 @@ def payment(drink):
     current_coins['Nickels'] += nickels
     current_coins['Pennies'] += pennies
 
-    return
+    your_total = current_coins['Quarters']*0.25 + current_coins['Dimes']*0.10 + current_coins['Nickels']*0.05 + current_coins['Pennies']*0.01
+    purchase_power = f'You have ${your_total} available'
+
+    return purchase_power
 
 
 def main():
