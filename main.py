@@ -63,10 +63,13 @@ def payment(drink):
     current_coins['Pennies'] += pennies
 
     your_total = current_coins['Quarters']*0.25 + current_coins['Dimes']*0.10 + current_coins['Nickels']*0.05 + current_coins['Pennies']*0.01
-    purchase_power = f'You have ${your_total} available'
+    purchase_power = f'You have ${your_total:.2f} available'
 
     return purchase_power
 
+#Make a complete_purchase type function that checks purchase_power in payment()
+#and either says successful, or need to add whatever amount.  Should recheck after
+#each insert coins until successful.
 
 def main():
     avail_water = resources['water']
