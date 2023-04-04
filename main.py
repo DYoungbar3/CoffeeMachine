@@ -46,8 +46,9 @@ def current_resources(resources):
 
 
 def payment(drink):
+    drink_price = MENU[drink]['cost']
     long_str = f"""
-    Cost =      ${MENU[drink]['cost']}
+    Cost =      ${drink_price}
     Please insert coins
     """
     print(long_str)
@@ -65,11 +66,20 @@ def payment(drink):
     your_total = current_coins['Quarters']*0.25 + current_coins['Dimes']*0.10 + current_coins['Nickels']*0.05 + current_coins['Pennies']*0.01
     purchase_power = f'You have ${your_total:.2f} available'
 
-    return purchase_power
+    return total_check(your_total, drink_price)
 
 #Make a complete_purchase type function that checks purchase_power in payment()
 #and either says successful, or need to add whatever amount.  Should recheck after
 #each insert coins until successful.
+
+def total_check(current_total, drink_price):
+    success_str = f'Payment processed.  Here is your drink!'
+    fail_str = f'Insufficient payment.  See you next time!'
+
+    if float(current_total) >= float(drink_price):
+        return success_str
+    else:
+        return fail_str
 
 def main():
     avail_water = resources['water']
